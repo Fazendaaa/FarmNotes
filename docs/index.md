@@ -1,7 +1,10 @@
 # FarmNotes
 > Notes in the learning process of "clean code".
 
-Reading about clean code promises and patterns, this notes are taken through this process. Beginning at the [Clean Code](https://www.amazon.com.br/Clean-Code-Handbook-Software-Craftsmanship-ebook/dp/B001GSTOAM?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=Clean+Code&qid=1525260282&sr=8-3&ref=sr_1_3) book and some of my own. The idea behind this project is to make an open book that anyone could copy, add and modify due your own needs; a collaborative way to improve software development through the learning process of making it easy for others to understand.
+Reading notes about clean code. Books that read about it:
+* [Clean Code](https://www.amazon.com.br/Clean-Code-Handbook-Software-Craftsmanship-ebook/dp/B001GSTOAM?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=Clean+Code&qid=1525260282&sr=8-3&ref=sr_1_3)
+
+The notes taken are based in those books and some of my own, through my own experience. The idea behind this project is to make an open book that anyone could copy, add and modify due your own needs; a collaborative way to improve software development through the learning process of making it easy for others to understand.
 
 First advice is to have right by your side a Design Patterns by GoF to follow along some concepts; I bought mine used through a site called [Estante Virtual](https://www.estantevirtual.com.br/).
 
@@ -18,6 +21,8 @@ In 1951, the japanese **Total Productive Maintenance(TPM)** culture instaure the
 The act of design must be, by itself, as an small local act of repair. In the book is said that the simple act of code indentation could reduce considerably the number of bugs in a back-of-the-envelope discover at Bell Labs; but I didn't find anything about this that endorses this idea.
 
 Wanding is the act of "wonder around" a bad code in a way that repels you of making anything. Probably because who wrote the code followed the [LeBlanc's Law](https://en.wikipedia.org/wiki/Talk%3AList_of_eponymous_laws#Proposal_to_add_LeBlanc's_law): _"later equals never"_.
+
+And just a friendly reminder from the Unix philosophy: _"Robustness is the child of transparency and simplicity."_
 
 ## The Art of Clean Code?
 Programming is a kind of art: the artists want make something beautiful and new, even if is not that new for the whole world or actually all the beautiful... But is new and beautiful to them. And that's why a team stuck with a bad code loses it's productivity also, because no one is creating something.
@@ -81,16 +86,32 @@ _"Every time you see duplication in the code, it represents a missed opportunity
 
 The funny thing about abstraction is that they might be irrelevant when you are doing some classwork or something like it but try to go a step even further, when you don't always know all of the code, to see that abstraction helps you write code when you are using something wrote by others. A simple example is to see that you know that a print function expects variables and sometimes a mask, but do you know how they are processed and shown in your console? Anyway you expected to work properly because the abstraction point is in a level that you don't have to care with lesser important matter of it. [Codeclimate](https://codeclimate.com/) is the support that I use for this part in my projects.
 
+## We Dont Need It Yet (WDNIY)
+* _"Always implement things when you actually need them, never when you just foresee that you need them."_
+* _"Solving tomorrow's problem is an excellent avoidance strategy, because you can't be proven wrong."_ - Kent Beck
+
+more about it [here](http://wiki.c2.com/?WeDontNeedItYet)
+
 ## Comments
 Comments are last resource tools, if you need a comment, stop, rethink it and than try it to refactor the code, even then if you fail to do so, and only then, write a code to better explain yourself.
 
 TODO comments could be a nice reminder to pick up the things were we were left off.
 
 ## Formatting
-Lost this notes due internet connection errors -- need to read again.
+Lost this notes due internet connection errors -- need to read Clean Code again.
+
+Hadley Wickham engraved a interesting new term in [Advanced R](http://adv-r.had.co.nz/): _"Dagwood Sandwich"_. This means a call that have many parenthesis side by side:
+
+```R
+# bad
+Fee(1, Fie(2, Foe(3, Foo(4))))
+
+# good
+Fee(Fie(Foe(Foo(4), 3), 2), 1)
+
+```
 
 ## Error Handling
-
 _"Error handling is important, but if it obscures logic, IT'S WRONG"_.
 
 Use exceptions rather than return codes — that means if the language supports try, catch and finally statements you should probably being using it;
@@ -106,6 +127,8 @@ Tests are a great way to understand the work of others.
 Is joining two or more modules that serves no direct purpose in a temporarily convenient location.
 
 ## Three Laws of TDD
+_"Program testing can be used to show the presence of bugs, but never to show their absence."_ - Dijkstra
+
 [Test Driven Development](https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530)
 
 * You may not write production code until you have written a failing unit test
@@ -284,3 +307,8 @@ The book itself has a great follow up list of books that are easy to find, I wil
 
 ## What I felt true
 I've began to write tests a short time before reading the Clean Code, but it says that when write tests your code is improved overall because you improve the design, and that's true in my own experience. I didn't use TDD when I wrote my first test and I had to refactor a lot of code to ensure that the tests worked properly, but when I did that my think process changed a little bit and that's when after I've started doing TDD without even noticing; my code went for a high coupled functions to a more abstract even better named concepts and this improved a lot the time spent on those tasks.
+
+From the Unix philosophy I found the Rule of Diversity: _"Distrust all claims for 'one true way'"_, a rule to be followed because the same project could have 'only one true way' to the approach that its designers decided so. The project follows the design not the other way around, so a good project means a good design; and that's why sometimes some people found themselves hating others works, because they followed another approach.
+
+## Recommend reading
+* [Basics of the Unix Philosophy](http://www.faqs.org/docs/artu/ch01s06.html)
