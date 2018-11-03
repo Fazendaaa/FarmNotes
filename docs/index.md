@@ -3,7 +3,7 @@
 
 Reading notes about clean code. Books that read about it:
 * [Clean Code](https://www.amazon.com.br/Clean-Code-Handbook-Software-Craftsmanship-ebook/dp/B001GSTOAM?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=Clean+Code&qid=1525260282&sr=8-3&ref=sr_1_3)
-* [Pragmatic Programer](https://pragprog.com/book/tpp/the-pragmatic-programmer)
+* [Pragmatic Programmer](https://pragprog.com/book/tpp/the-pragmatic-programmer)
 
 And some others mentioned though out this notes.
 
@@ -75,7 +75,7 @@ _"What is the most important thing in a software?"_
 * Making it readable
 * other: ___________________________
 
-That's what I call a tricky question, I don't really think there's a right or wrong question, your use case is what really is the important and the quality level needed for it. As mentioned in the Pragmatic Programer: _"Great software today is often preferable to perfect software tomorrow."_
+That's what I call a tricky question, I don't really think there's a right or wrong question, your use case is what really is the important and the quality level needed for it. As mentioned in the Pragmatic Programmer: _"Great software today is often preferable to perfect software tomorrow."_
 
 All of this is related to the chosen approach to the problem, but that doesn't mean that they can't be related in a near future, a code written in a higher level of abstraction allows you to solve the problem itself without having to worry on solving domain problems; but, later on, you can improve this established code in a low level, improving its performance.
 
@@ -148,7 +148,7 @@ The funny thing about abstraction is that they might be irrelevant when you are 
 more about it [here](http://wiki.c2.com/?WeDontNeedItYet)
 
 ## Orthogonality
-From Pragmatic Programer:
+From Pragmatic Programmer:
 
 _"When components are isolated from one another, you know that you can change one without having to worry about the rest. As long as you don't change the component's external interfaces, you can be comfortable that you won't cause problems that ripple through the entire system."_
 
@@ -183,6 +183,8 @@ _"Error handling is important, but if it obscures logic, IT'S WRONG"_.
 Use exceptions rather than return codes — that means if the language supports try, catch and finally statements you should probably being using it;
 
 I didn't know that checked exceptions is an Open/Closed Principle violation.
+
+_"It doesn't really matter whether the bug is your fault or someone else's. It still your problem."_
 
 ## Boundaries
 When using third-parties packages before anything else, write some codes for it; this will ensure that they work the way is expected to and, after bound to the system, the time that otherwise you would spend writing new test for it would be considerably reduced.
