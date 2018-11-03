@@ -1,12 +1,51 @@
 # FarmNotes
-> Notes in the learning process of "clean code".
+> Notes in the my learning process.
 
 Reading notes about clean code. Books that read about it:
 * [Clean Code](https://www.amazon.com.br/Clean-Code-Handbook-Software-Craftsmanship-ebook/dp/B001GSTOAM?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=Clean+Code&qid=1525260282&sr=8-3&ref=sr_1_3)
+* [Pragmatic Programer](https://pragprog.com/book/tpp/the-pragmatic-programmer)
+
+And some others mentioned though out this notes.
 
 The notes taken are based in those books and some of my own, through my own experience. The idea behind this project is to make an open book that anyone could copy, add and modify due your own needs; a collaborative way to improve software development through the learning process of making it easy for others to understand.
 
-First advice is to have right by your side a Design Patterns by GoF to follow along some concepts; I bought mine used through a site called [Estante Virtual](https://www.estantevirtual.com.br/).
+First advice is to have right by your side a Design Patterns by GoF to follow along some concepts; I bought mine used through a site called [Estante Virtual](https://www.estantevirtual.com.br/); I know the Design Patterns are more OPP related but most books reference it and even not reading in its wholesome, is a good addition to have, it might help you out understand what some authors really want to mean.
+
+- [FarmNotes](#farmnotes)
+    - [The 5S](#the-5s)
+    - [The overview](#the-overview)
+        - [Before going any further](#before-going-any-further)
+    - [The Art of Clean Code?](#the-art-of-clean-code)
+    - [Naming variables](#naming-variables)
+    - [Functions](#functions)
+    - [Don't Repeat Yourself(DRY)](#dont-repeat-yourselfdry)
+    - [We Dont Need It Yet (WDNIY)](#we-dont-need-it-yet-wdniy)
+    - [Orthogonality](#orthogonality)
+    - [Comments](#comments)
+    - [Formatting](#formatting)
+    - [Error Handling](#error-handling)
+    - [Boundaries](#boundaries)
+    - [Artificial coupling](#artificial-coupling)
+    - [Three Laws of TDD](#three-laws-of-tdd)
+    - [F.I.R.S.T.](#first)
+    - [Here We Go](#here-we-go)
+        - [Cohesion](#cohesion)
+        - [Open-Closed Principle (OCP)](#open-closed-principle-ocp)
+        - [Dependency Inversion Principle (DIP)](#dependency-inversion-principle-dip)
+        - [Systems](#systems)
+    - [Emergence](#emergence)
+    - [Concurrency](#concurrency)
+    - [Successive Refinement](#successive-refinement)
+    - [Logic](#logic)
+        - [If or while statements](#if-or-while-statements)
+        - [Comparison](#comparison)
+    - [Variables](#variables)
+    - [Abstractions](#abstractions)
+        - [Avoid Transitive Navigation](#avoid-transitive-navigation)
+    - [Code review](#code-review)
+    - [What I felt that is missing](#what-i-felt-that-is-missing)
+    - [What I felt true](#what-i-felt-true)
+    - [Recommend reading](#recommend-reading)
 
 ## The 5S
 In 1951, the japanese **Total Productive Maintenance(TPM)** culture instaure the _5S_:
@@ -17,12 +56,28 @@ In 1951, the japanese **Total Productive Maintenance(TPM)** culture instaure the
 * Siketsu (_"Standardization"_): follow the rules;
 * Shutsuke (_"Self-discipline"_): reflect on one's work and be willing tho change.
 
+This is also related to the "kaizen" word, which is related to the concept of small daily changes and improvements.
+
 ## The overview
 The act of design must be, by itself, as an small local act of repair. In the book is said that the simple act of code indentation could reduce considerably the number of bugs in a back-of-the-envelope discover at Bell Labs; but I didn't find anything about this that endorses this idea.
 
 Wanding is the act of "wonder around" a bad code in a way that repels you of making anything. Probably because who wrote the code followed the [LeBlanc's Law](https://en.wikipedia.org/wiki/Talk%3AList_of_eponymous_laws#Proposal_to_add_LeBlanc's_law): _"later equals never"_.
 
 And just a friendly reminder from the Unix philosophy: _"Robustness is the child of transparency and simplicity."_
+
+### Before going any further
+_"What is the most important thing in a software?"_
+* Performance
+* Safety
+* Documentation
+* Using a solid framework
+* Doing what needs to be done
+* Making it readable
+* other: ___________________________
+
+That's what I call a tricky question, I don't really think there's a right or wrong question, your use case is what really is the important and the quality level needed for it. As mentioned in the Pragmatic Programer: _"Great software today is often preferable to perfect software tomorrow."_
+
+All of this is related to the chosen approach to the problem, but that doesn't mean that they can't be related in a near future, a code written in a higher level of abstraction allows you to solve the problem itself without having to worry on solving domain problems; but, later on, you can improve this established code in a low level, improving its performance.
 
 ## The Art of Clean Code?
 Programming is a kind of art: the artists want make something beautiful and new, even if is not that new for the whole world or actually all the beautiful... But is new and beautiful to them. And that's why a team stuck with a bad code loses it's productivity also, because no one is creating something.
@@ -92,7 +147,18 @@ The funny thing about abstraction is that they might be irrelevant when you are 
 
 more about it [here](http://wiki.c2.com/?WeDontNeedItYet)
 
+## Orthogonality
+From Pragmatic Programer:
+
+_"When components are isolated from one another, you know that you can change one without having to worry about the rest. As long as you don't change the component's external interfaces, you can be comfortable that you won't cause problems that ripple through the entire system."_
+
+_"You get two major benefits if you write orthogonal systems: increased productivity and reduced risk."_
+
+_"Don't rely on the properties of things you can't control."_
+
 ## Comments
+> "Comments should explain the why, not the what" - Unknown
+
 Comments are last resource tools, if you need a comment, stop, rethink it and than try it to refactor the code, even then if you fail to do so, and only then, write a code to better explain yourself.
 
 TODO comments could be a nice reminder to pick up the things were we were left off.
@@ -150,7 +216,7 @@ Rules for a clean testing:
 ![xkcd](https://imgs.xkcd.com/comics/standards.png)
 
 **The Single Responsibility Principle (SRP)**
-> _"You should have one responsibility -- one reason to change"_.
+* _"You should have one responsibility -- one reason to change"_.
 
 ### Cohesion
 * A method should manipulate one or more variables; the more manipulates the more cohesive it's, which is not advisable to do it because a high co-dependency increasing logical as a whole.
@@ -199,6 +265,8 @@ Then how a "perfect" code should exists in this world?
 A good code is good as long the one who wrote it and always will be something to improving since we are improving all the time, change languages and bringing some concepts from others backgrounds, seeing the code made it by others. Code is like wine, it's gets better with time.
 
 _"Refactoring is a lot like solving a Rubik's cube. There are lots of little steps required to achieve a large goal. Each step enables the next."_
+
+Besides that, requirements, growing scale, hardware updates, etc, change faster than the code developed to it can keep its pace.
 
 One thing to keep in mind when refining code is [The Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment).
 
