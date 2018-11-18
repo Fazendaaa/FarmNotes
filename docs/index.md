@@ -9,13 +9,14 @@ And some others mentioned though out this notes.
 
 The notes taken are based in those books and some of my own, through my own experience. The idea behind this project is to make an open book that anyone could copy, add and modify due your own needs; a collaborative way to improve software development through the learning process of making it easy for others to understand.
 
-First advice is to have right by your side a Design Patterns by GoF to follow along some concepts; I bought mine used through a site called [Estante Virtual](https://www.estantevirtual.com.br/); I know the Design Patterns are more OPP related but most books reference it and even not reading in its wholesome, is a good addition to have, it might help you out understand what some authors really want to mean.
+First advice is to have right by your side a Design Patterns by GoF to follow along some concepts; I bought mine used through a site called [Estante Virtual](https://www.estantevirtual.com.br/); I know the Design Patterns are more OOP related but most books reference it and even not reading in its wholesome, is a good addition to have, it might help you out understand what some authors really want to mean.
 
 - [FarmNotes](#farmnotes)
     - [The 5S](#the-5s)
     - [The overview](#the-overview)
         - [Before going any further](#before-going-any-further)
     - [The Art of Clean Code?](#the-art-of-clean-code)
+    - [Design By Contract](#design-by-contract)
     - [Naming variables](#naming-variables)
     - [Functions](#functions)
     - [Don't Repeat Yourself(DRY)](#dont-repeat-yourselfdry)
@@ -91,6 +92,33 @@ MacBook's dictionary definition of crisp: _"briskly decisive and matter-of-fact,
 One definition of clean code that I particularly liked a lot is that a clean code makes it easy for other people to enhance it, and that's is linked to "Big" Dave Thomas, founder of OTI. I do really like when someone do a code review of something that I've wrote, but if there's nothing add to it the empty feels fulls me up -- no pun intended hahahah
 
 ![xkcd](https://imgs.xkcd.com/comics/automation.png)
+
+## Design By Contract
+Before writing any line of code (loc) one must first write good tests for it, a TDD approach that can be improved by the [three laws of TDD](#three-laws-of-tdd). Design By Contract (DBC) is a step further of documentation and sequentially a code improvement.
+
+Right after you wrote your tests, you should also document the function beforehand; this will help you out to review the code scope right before implement it. Right after this you can see if any changes might be done and then make them.
+
+The DBC is this step were you explicit tell to other what your code must do, but first you remind yourself of it. This will aid you, guiding it each step of the way.
+
+A TypeScript example, using the [TypeDoc](http://typedoc.org/) notation:
+```TS
+/*
+ * Sum the given values
+ * 
+ * @param x - first value
+ * @param y - second value
+ *
+ * @example
+ * add(1, 2)
+ * add(3, 2)
+ * add(1, 3)
+ *
+ * @returns the result
+ */
+const add = (x: number, y: number): number => x + y;
+```
+
+**note**: I do personally prefer type languages due to its easy to read and document capabilities.
 
 ## Naming variables
 A good abbreviation could be a disinformative one also;
