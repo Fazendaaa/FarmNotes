@@ -11,6 +11,8 @@ The notes taken are based in those books and some of my own, through my own expe
 
 First advice is to have right by your side a Design Patterns by GoF to follow along some concepts; I bought mine used through a site called [Estante Virtual](https://www.estantevirtual.com.br/); I know the Design Patterns are more OOP related but most books reference it and even not reading in its wholesome, is a good addition to have, it might help you out understand what some authors really want to mean.
 
+A good first tip about writing code before reading any of this tips is: _"Trust no one, including yourself."_
+
 - [FarmNotes](#farmnotes)
     - [The 5S](#the-5s)
     - [The overview](#the-overview)
@@ -40,6 +42,7 @@ First advice is to have right by your side a Design Patterns by GoF to follow al
     - [Logic](#logic)
         - [If or while statements](#if-or-while-statements)
         - [Comparison](#comparison)
+        - [Memory allocation](#memory-allocation)
     - [Variables](#variables)
     - [Abstractions](#abstractions)
         - [Avoid Transitive Navigation](#avoid-transitive-navigation)
@@ -302,7 +305,6 @@ One thing to keep in mind when refining code is [The Principle of Least Astonish
 
 ## Logic
 ### If or while statements
-
 Plain Text 
 ```typescript
 if (isPayDay(date))
@@ -335,6 +337,13 @@ Which many compilers won't catch as an error or even a warning since comparisons
 ```c
 if ((myPointer = malloc(sizeof(int) * 42)) != NULL)
 ```
+
+### Memory allocation
+Some awesome tips from Pragmatic Programmer are:
+
+_"1. Deallocate resources in the opposite order to that in which you allocate them. That way you won't orphan resource if one resource contains references to another."_
+
+_"2. When allocating the same set of resources in different places in your code, always allocate them in the same order. This will reduce the possibility of deadlock."_
 
 ## Variables
 If you had to declare a variable in the middle of the code, probably this part of the code should be in another function.
