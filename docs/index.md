@@ -4,6 +4,7 @@
 Reading notes about clean code. Books that read about it:
 * [Clean Code](https://www.amazon.com.br/Clean-Code-Handbook-Software-Craftsmanship-ebook/dp/B001GSTOAM?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=Clean+Code&qid=1525260282&sr=8-3&ref=sr_1_3)
 * [Pragmatic Programmer](https://pragprog.com/book/tpp/the-pragmatic-programmer)
+* [Refactoring](https://www.amazon.com/Refactoring-Improving-Existing-Addison-Wesley-Signature/dp/0134757599)
 
 And some others mentioned though out this notes.
 
@@ -39,6 +40,7 @@ A good first tip about writing code before reading any of this tips is: _"Trust 
     - [Emergence](#emergence)
     - [Concurrency](#concurrency)
     - [Successive Refinement](#successive-refinement)
+        - [Refactoring](#refactoring)
     - [Logic](#logic)
         - [If or while statements](#if-or-while-statements)
         - [Comparison](#comparison)
@@ -97,6 +99,8 @@ One definition of clean code that I particularly liked a lot is that a clean cod
 ![xkcd](https://imgs.xkcd.com/comics/automation.png)
 
 ## Design By Contract
+_"Any fool can write code that a computer can understand. Good programmers write code that humans can understand."_ -- FOWLER, Martin.
+
 Before writing any line of code (loc) one must first write good tests for it, a TDD approach that can be improved by the [three laws of TDD](#three-laws-of-tdd). Design By Contract (DBC) is a step further of documentation and sequentially a code improvement.
 
 Right after you wrote your tests, you should also document the function beforehand; this will help you out to review the code scope right before implement it. Right after this you can see if any changes might be done and then make them.
@@ -121,7 +125,7 @@ A TypeScript example, using the [TypeDoc](http://typedoc.org/) notation:
 const add = (x: number, y: number): number => x + y;
 ```
 
-**note**: I do personally prefer type languages due to its easy to read and document capabilities.
+**note**: I do personally prefer type languages due to its easy to read and document capabilities. Besides that, languages that also don't allow automatic casting for me are the best ones due to its expressiveness when writing something that might fail and the compiler or interpreter won't throw an error or warning in some cases and it will works just fine; this could lead to some hours of debugging when testing it the code without even notice this "problem".
 
 ## Naming variables
 A good abbreviation could be a disinformative one also;
@@ -302,6 +306,16 @@ _"Refactoring is a lot like solving a Rubik's cube. There are lots of little ste
 Besides that, requirements, growing scale, hardware updates, etc, change faster than the code developed to it can keep its pace.
 
 One thing to keep in mind when refining code is [The Principle of Least Astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment).
+
+### Refactoring
+While seeking to improve a current code base:
+1. First, write down tests for the current code
+2. Make it more readable through renaming it variables, functions, methods
+3. Break it apart
+4. Start to move things a little
+5. Add new things
+6. Make major changes
+7. _"RELEASE THE KRAKEN!!!"_ - JONES, Davy
 
 ## Logic
 ### If or while statements
