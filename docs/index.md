@@ -45,6 +45,7 @@ A good first tip about writing code before reading any of this tips is: _"Trust 
         - [If or while statements](#if-or-while-statements)
         - [Comparison](#comparison)
         - [Memory allocation](#memory-allocation)
+        - [Switch statements](#switch-statements)
     - [Variables](#variables)
     - [Abstractions](#abstractions)
         - [Avoid Transitive Navigation](#avoid-transitive-navigation)
@@ -52,6 +53,7 @@ A good first tip about writing code before reading any of this tips is: _"Trust 
     - [What I felt that is missing](#what-i-felt-that-is-missing)
     - [What I felt true](#what-i-felt-true)
     - [Recommend reading](#recommend-reading)
+    - [Recommend watching](#recommend-watching)
 
 ## The 5S
 In 1951, the japanese **Total Productive Maintenance(TPM)** culture instaure the _5S_:
@@ -86,6 +88,8 @@ That's what I call a tricky question, I don't really think there's a right or wr
 All of this is related to the chosen approach to the problem, but that doesn't mean that they can't be related in a near future, a code written in a higher level of abstraction allows you to solve the problem itself without having to worry on solving domain problems; but, later on, you can improve this established code in a low level, improving its performance.
 
 ## The Art of Clean Code?
+> _"Transparent code is an important form of efficiency. Computer time is cheap, human time (and frustration) is expensive"_ - R Inferno
+
 Programming is a kind of art: the artists want make something beautiful and new, even if is not that new for the whole world or actually all the beautiful... But is new and beautiful to them. And that's why a team stuck with a bad code loses it's productivity also, because no one is creating something.
 
 Being able to spot a bad code doesn't mean that you know how to fix or even re-factoring making it a better one. The one who seeks the best isn't always the one who finds it.
@@ -359,6 +363,9 @@ _"1. Deallocate resources in the opposite order to that in which you allocate th
 
 _"2. When allocating the same set of resources in different places in your code, always allocate them in the same order. This will reduce the possibility of deadlock."_
 
+### Switch statements
+Another tip from Refactoring is to never use a switch heavily dependent in another object, that's because you through this you are making highly coupled.
+
 ## Variables
 If you had to declare a variable in the middle of the code, probably this part of the code should be in another function.
 
@@ -433,3 +440,6 @@ From the Unix philosophy I found the Rule of Diversity: _"Distrust all claims fo
 
 ## Recommend reading
 * [Basics of the Unix Philosophy](http://www.faqs.org/docs/artu/ch01s06.html)
+
+## Recommend watching
+* [Rob Pike - 'Concurrency Is Not Parallelism'](https://youtu.be/cN_DpYBzKso)
